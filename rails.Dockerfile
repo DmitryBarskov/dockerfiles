@@ -7,7 +7,6 @@ RUN apk add --update --no-cache \
     tzdata \
     git
 
-
 RUN gem install rails
 
 RUN adduser $USER -DS

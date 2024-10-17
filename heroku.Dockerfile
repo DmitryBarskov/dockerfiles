@@ -1,8 +1,9 @@
-FROM --platform=arm64 node:alpine
+FROM node:alpine
 
-RUN apk add --update --no-cache curl bash
+RUN apk add --update --no-cache curl bash git
 
 RUN curl https://cli-assets.heroku.com/install.sh | sh
-RUN yes | heroku login
 
-CMD [ "heroku" ]
+WORKDIR /root
+
+COPY heroku.netrc /root/.netrc
